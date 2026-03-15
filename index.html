@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ចែកសង្សារ Free</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Moul', 'Khmer OS', 'Kantumruy', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #d32f2f;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            color: #555;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #ffcdd2;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-color: #ff8a80;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 2px solid #ff8a80;
+            display: block;
+        }
+        
+        .product-info {
+            padding: 20px;
+            text-align: center;
+            background: #fff9f9;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            color: #c2185b;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: #ff5252;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: 2px solid #fff;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(255, 82, 82, 0.3);
+            transition: background 0.2s ease;
+        }
+        
+        .price-tag:hover {
+            background: #ff1744;
+        }
+        
+        .click-hint {
+            margin-top: 12px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .video-container {
+            margin-top: 15px;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            background: #000;
+        }
+        
+        .video-container.show {
+            display: block;
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #555;
+            font-size: 1rem;
+            padding: 20px;
+            border-top: 2px dashed #ff8a80;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+            
+            .product-image {
+                height: 220px;
+            }
+            
+            .price-tag {
+                font-size: 1.3rem;
+                padding: 8px 20px;
+            }
+        }
+
+        /* Animation for new video */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .video-container.show video {
+            animation: fadeIn 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>💝 ចែកសង្សារ Free 💝</h1>
+        <p>សូមជ្រើសរើសយកមួយ រង្វាន់មានកំណត់</p>
+    </div>
+
+    <div class="container">
+        <!-- Product Card 1 -->
+        <div class="product-card">
+            <img src="https://files.catbox.moe/v1xqf5.jpg" alt="រូបភាពសង្សារ" class="product-image" loading="lazy">
+            <div class="product-info">
+                <h3 class="product-title">🎁 សង្សារគំរូទី១</h3>
+                <div class="price-tag" onclick="playVideo(this, 0)">0$</div>
+                <div class="click-hint">
+                    <span>ចុច 0$ ដើម្បីទទួលបានសង្សារ</span>
+                    <span>😊</span>
+                </div>
+                <div class="video-container" id="video-container-0"></div>
+            </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="product-card">
+            <img src="https://files.catbox.moe/v1xqf5.jpg" alt="រូបភាពសង្សារ" class="product-image" loading="lazy">
+            <div class="product-info">
+                <h3 class="product-title">🎁 សង្សារគំរូទី២</h3>
+                <div class="price-tag" onclick="playVideo(this, 1)">0$</div>
+                <div class="click-hint">
+                    <span>ចុច 0$ ដើម្បីទទួលបានសង្សារ</span>
+                    <span>😊</span>
+                </div>
+                <div class="video-container" id="video-container-1"></div>
+            </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="product-card">
+            <img src="https://files.catbox.moe/v1xqf5.jpg" alt="រូបភាពសង្សារ" class="product-image" loading="lazy">
+            <div class="product-info">
+                <h3 class="product-title">🎁 សង្សារគំរូទី៣</h3>
+                <div class="price-tag" onclick="playVideo(this, 2)">0$</div>
+                <div class="click-hint">
+                    <span>ចុច 0$ ដើម្បីទទួលបានសង្សារ</span>
+                    <span>😊</span>
+                </div>
+                <div class="video-container" id="video-container-2"></div>
+            </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="product-card">
+            <img src="https://files.catbox.moe/v1xqf5.jpg" alt="រូបភាពសង្សារ" class="product-image" loading="lazy">
+            <div class="product-info">
+                <h3 class="product-title">🎁 សង្សារគំរូទី៤</h3>
+                <div class="price-tag" onclick="playVideo(this, 3)">0$</div>
+                <div class="click-hint">
+                    <span>ចុច 0$ ដើម្បីទទួលបានសង្សារ</span>
+                    <span>😊</span>
+                </div>
+                <div class="video-container" id="video-container-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>💕 ចែកសង្សារ Free ម្នាក់មួយៗ មានអ្នកត្រូវការទេ? 💕</p>
+        <p style="font-size: 0.9rem; margin-top: 10px;">ចុចលើ 0$ ដើម្បីមើលវីដេអូសង្សារ</p>
+    </div>
+
+    <script>
+        // Array ផ្ទុកវីដេអូទាំង ៤
+        const videoUrls = [
+            'https://files.catbox.moe/mo1k11.mp4',
+            'https://files.catbox.moe/xjhykh.mp4',
+            'https://files.catbox.moe/4r7w90.mp4',
+            'https://files.catbox.moe/4cdizp.mp4'
+        ];
+
+        // មុខងារចាក់វីដេអូតាមការចុច
+        function playVideo(element, cardIndex) {
+            // យក container នៃវីដេអូ
+            const container = document.getElementById(`video-container-${cardIndex}`);
+            
+            // បង្កើតលេខចៃដន្យពី 0 ដល់ 3
+            const randomIndex = Math.floor(Math.random() * videoUrls.length);
+            
+            // យក URL វីដេអូតាមលេខចៃដន្យ
+            const selectedVideo = videoUrls[randomIndex];
+            
+            // បង្កើត video element ថ្មី
+            const videoElement = document.createElement('video');
+            videoElement.controls = true;
+            videoElement.src = selectedVideo;
+            videoElement.autoplay = true;
+            
+            // សម្អាត container មុនបន្ថែមវីដេអូថ្មី
+            container.innerHTML = '';
+            container.appendChild(videoElement);
+            
+            // បង្ហាញ container
+            container.classList.add('show');
+            
+            // បង្ហាញ URL វីដេអូក្នុង console
+            console.log('កាតទី ' + (cardIndex + 1) + ' - វីដេអូដែលបានជ្រើសរើស (លេខ ' + (randomIndex + 1) + '):', selectedVideo);
+            
+            // រំកិលទៅកាន់វីដេអូ
+            setTimeout(() => {
+                container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+
+        // បន្ថែមការ Animation ពេលផ្ទុកទំព័រ
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s forwards`;
+            });
+        });
+
+        // បន្ថែម style សម្រាប់ animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
